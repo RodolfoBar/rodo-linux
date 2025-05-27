@@ -1,0 +1,10 @@
+nvim
+git
+clang
+ripgrep
+unzip
+7zip
+wget
+curl
+fzf
+tmux

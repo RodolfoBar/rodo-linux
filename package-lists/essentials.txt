@@ -1,0 +1,5 @@
+yay
+i3
+rofi
+kitty
+picom
