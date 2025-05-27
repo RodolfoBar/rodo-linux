@@ -1,0 +1,99 @@
+# True Essentials
+base-devel
+less
+man-db
+git
+vim
+g++
+wget
+curl
+unzip
+7zip
+tar
+bash-completion
+lf
+cups
+system-config-printer
+bat
+
+# Firewall
+ufw
+
+# Development
+base-devel
+less
+man-db
+git
+xclip
+neovim
+xclip
+clang
+g++
+fzf
+tmux
+kitty
+ripgrep
+wget
+curl
+tar
+python-pip
+**fonts**
+
+# i3
+xorg
+xorg-xinit
+i3
+feh
+kitty
+rofi
+polybar
+
+# Encryption Keys
+gnupg
+gnome-keyring
+libsecret
+seahorse
+
+# Nextcloud
+nextcloud-client
+gnome-keyring
+libsecret
+seahorse
+
+# Desktop Utils
+arandr
+vlc
+** lxappearance (change to that arcolinux package)
+flameshot
+keepassxc
+zathura
+
+# Graphical File Manager
+**thunar         (Look for a better thing)
+**gvfs           (Look for a better thing)
+**gvfs-mtp       (Look for a better thing)
+**thunar-volman  (Look for a better thing)
+
+# Bluetooth
+bluez
+bluez-utils
+blueman
+
+# Partition Manager
+**gparted (Look for something else)
+
+# Browser-yay
+zen-browser
+
+# Doom Emacs
+git
+emacs
+
+# Dotfiles
+git
+
+# Discord (don't forget the patch to prevent updates)
+discord
+
+# Flatpak
+flatpak
