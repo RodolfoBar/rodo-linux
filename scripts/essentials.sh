@@ -75,6 +75,7 @@ fi
 mkdir $FONT_DIR/JetBrainsMono
 pushd $FONT_DIR/JetBrainsMono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+unzip JetBrainsMono.zip
 popd
 
 if [[ -d $FONT_DIR/DepartureMono ]]; then
@@ -83,6 +84,7 @@ fi
 mkdir $FONT_DIR/DepartureMono
 pushd $FONT_DIR/DepartureMono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
+unzip DepartureMono.zip
 popd
 
 if [[ -d $FONT_DIR/CascadiaCode ]]; then
@@ -91,6 +93,7 @@ fi
 mkdir $FONT_DIR/CascadiaCode
 pushd $FONT_DIR/CascadiaCode
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+unzip CascadiaCode.zip
 popd
 
 if [[ -d $FONT_DIR/CascadiaMono ]]; then
@@ -99,6 +102,7 @@ fi
 mkdir $FONT_DIR/CascadiaMono
 pushd $FONT_DIR/CascadiaMono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
+unzip CascadiaMono.zip
 popd
 # }}}
 
