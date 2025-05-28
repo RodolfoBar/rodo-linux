@@ -1,6 +1,7 @@
-nvim
+neovim
 git
 clang
+gcc
 ripgrep
 unzip
 7zip
@@ -8,3 +9,4 @@ wget
 curl
 fzf
 tmux
+python-pip
