@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 die () {
+	clear
 	echo "
 
 
@@ -12,6 +13,7 @@ ERROR: EXITING
 
 
 "
+	sleep 2
 }
 
 clear
@@ -26,8 +28,6 @@ DOTFILES
 
 "
 
-sleep 100
-
 DOTS_DIR="$HOME/Repos/dotfiles"
 
 if [[ ! -d $HOME/Repos ]]; then
@@ -38,14 +38,12 @@ if [[ ! -d $DOTS_DIR ]]; then
 	i=0
 	while [[ $i == 0 ]]; do
 		read -p "Enter a dotfiles repository: " dotsrepo
-		git clone $dotsrepos $DOTS_DIR
-		if [[ $? == 0 ]]; then
-			break
-		fi
+		git clone $dotsrepo $DOTS_DIR
 		if [[ $? != 0 ]]; then
 			die
-			exit 0
+			return 0
 		fi
+		break
 	done
 
 	if [[ ! -d $HOME/.config ]]; then
@@ -57,8 +55,9 @@ if [[ ! -d $DOTS_DIR ]]; then
 		ln -s "$DOTS_DIR$file" "$HOME/.config/$file"
 	done
 
-	echo "source $HOME/.config/bash/my_bashrc.sh" >> $HOME/.bashrc
-
+	if [[ -z $( cat .bashrc | grep "source $HOME/.config/bash/my_bashrc.sh") ]]; then
+		echo "source $HOME/.config/bash/my_bashrc.sh" >> $HOME/.bashrc
+	fi
 else
 	echo "Error: dotfiles file exists"
 fi
