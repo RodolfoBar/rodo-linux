@@ -13,7 +13,7 @@ ERROR: EXITING
 
 
 "
-	sleep 2
+	sleep 1
 }
 
 clear
@@ -52,7 +52,7 @@ if [[ ! -d $DOTS_DIR ]]; then
 
 	for file in $(ls $DOTS_DIR); do
 		rm -rf "$HOME/.config/$file"
-		ln -s "$DOTS_DIR$file" "$HOME/.config/$file"
+		ln -s "$DOTS_DIR/$file" "$HOME/.config/$file"
 	done
 
 	if [[ -z $( cat .bashrc | grep "source $HOME/.config/bash/my_bashrc.sh") ]]; then
@@ -61,3 +61,5 @@ if [[ ! -d $DOTS_DIR ]]; then
 else
 	echo "Error: dotfiles file exists"
 fi
+
+sleep 1
