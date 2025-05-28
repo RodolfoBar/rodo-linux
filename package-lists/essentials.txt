@@ -3,7 +3,7 @@ less
 man-db
 git
 vim
-g++
+gcc
 wget
 curl
 unzip
