@@ -17,6 +17,7 @@ ESSENTIALS
 "
 
 PACKAGES_DIR="$HOME/Repos/rodo-linux/package-lists"
+FONT_DIR="$HOME/.local/share/fonts"
 
 # {{{ Essential Packages
 for line in $(cat $PACKAGES_DIR/essentials.txt); do
@@ -51,6 +52,49 @@ if [[ ! -d $HOME/Software/yay ]]; then
 	git clone https://aur.archlinux.org/yay.git $HOME/Software/yay
 	pushd $HOME/Software/yay
 	makepkg -si
+	popd
+fi
+# }}}
+
+# {{{ Install Fonts
+if [[ ! -d $HOME/.local ]]; then
+	mkdir $HOME/.local
+fi
+
+if [[ ! -d $HOME/.local/share ]]; then
+	mkdir $HOME/.local/share
+fi
+
+if [[ ! -d $HOME/.local/share/fonts ]]; then
+	mkdir $HOME/.local/share/fonts
+fi
+
+if [[ -d $FONT_DIR/JetBrainsMono ]]; then
+	rm -rf $FONT_DIR/JetBrainsMono
+	mkdir $FONT_DIR/JetBrainsMono
+	pushd $FONT_DIR/JetBrainsMono
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+	popd
+fi
+if [[ -d $FONT_DIR/DepartureMono ]]; then
+	rm -rf $FONT_DIR/DepartureMono
+	mkdir $FONT_DIR/DepartureMono
+	pushd $FONT_DIR/DepartureMono
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
+	popd
+fi
+if [[ -d $FONT_DIR/CascadiaCode ]]; then
+	rm -rf $FONT_DIR/CascadiaCode
+	mkdir $FONT_DIR/CascadiaCode
+	pushd $FONT_DIR/CascadiaCode
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+	popd
+fi
+if [[ -d $FONT_DIR/CascadiaMono ]]; then
+	rm -rf $FONT_DIR/CascadiaMono
+	mkdir $FONT_DIR/CascadiaMono
+	pushd $FONT_DIR/CascadiaMono
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
 	popd
 fi
 # }}}
