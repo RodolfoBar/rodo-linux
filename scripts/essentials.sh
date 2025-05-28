@@ -72,31 +72,34 @@ fi
 if [[ -d $FONT_DIR/JetBrainsMono ]]; then
 	rm -rf $FONT_DIR/JetBrainsMono
 	mkdir $FONT_DIR/JetBrainsMono
-	pushd $FONT_DIR/JetBrainsMono
-	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-	popd
 fi
+pushd $FONT_DIR/JetBrainsMono
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+popd
+
 if [[ -d $FONT_DIR/DepartureMono ]]; then
 	rm -rf $FONT_DIR/DepartureMono
 	mkdir $FONT_DIR/DepartureMono
-	pushd $FONT_DIR/DepartureMono
-	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
-	popd
 fi
+pushd $FONT_DIR/DepartureMono
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
+popd
+
 if [[ -d $FONT_DIR/CascadiaCode ]]; then
 	rm -rf $FONT_DIR/CascadiaCode
 	mkdir $FONT_DIR/CascadiaCode
-	pushd $FONT_DIR/CascadiaCode
-	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
-	popd
 fi
+pushd $FONT_DIR/CascadiaCode
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+popd
+
 if [[ -d $FONT_DIR/CascadiaMono ]]; then
 	rm -rf $FONT_DIR/CascadiaMono
 	mkdir $FONT_DIR/CascadiaMono
-	pushd $FONT_DIR/CascadiaMono
-	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
-	popd
 fi
+pushd $FONT_DIR/CascadiaMono
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
+popd
 # }}}
 
 sleep 1
