@@ -58,7 +58,7 @@ EXITING PROGRAM
         exit 0
     fi
 
-    if [[ $response <= 19 && $response >= 1 ]]; then
+    if [[ $response < 20 && $response > 0 ]]; then
         case "$response" in
             1) bash $SCRIPTS_DIR/essentials.sh ;;
             2) bash $SCRIPTS_DIR/dotfiles.sh ;;
