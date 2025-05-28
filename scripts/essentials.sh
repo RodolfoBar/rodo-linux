@@ -29,7 +29,7 @@ if [[ ! -z $(lscpu | grep "Model name" | grep AMD) ]]; then
 	sudo pacman -S --noconfirm --needed amd-ucode
 fi
 
-if [[ ! -z $(lscpu | grep "Model name" | grep AMD) ]]; then
+if [[ ! -z $(lscpu | grep "Model name" | grep INTEL) ]]; then
 	sudo pacman -S --noconfirm --needed intel-ucode
 fi
 # }}}
