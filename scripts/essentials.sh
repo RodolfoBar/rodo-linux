@@ -1,16 +1,54 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
+clear
+
 echo "
+
+
 ----------
 ESSENTIALS
 ----------
+
+
 "
 
-if [[ ! -d $Software ]];then
+# {{{ Essential Packages
+for line in $(cat ../package-lists/essentials.txt); do
+	sudo pacman -S --noconfirm --needed $line
+done
+# }}}
+
+# {{{ CPU Microcode
+if [[ ! -z $(lscpu | grep "Model name" | grep AMD) ]]; then
+	sudo pacman -S --noconfirm --needed amd-ucode
 fi
 
-if [[ ! -z $(command yay) ]]; then
+if [[ ! -z $(lscpu | grep "Model name" | grep AMD) ]]; then
+	sudo pacman -S --noconfirm --needed intel-ucode
+fi
+# }}}
+
+# {{{ Graphics Drivers
+# if [[ ! -z $(lspci | grep VGA | grep NVIDIA) ]]; then
+# 	sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-settings
+# elif [[ ! -z $(lspci | grep VGA) ]]; then
+# 	sudo pacman -S --noconfirm --needed 
+# fi
+# }}}
+
+# {{{ yay install
+if [[ ! -d $HOME/Software ]]; then
+	mkdir $HOME/Software
 fi
 
+if [[ ! -d $HOME/Software/yay ]]; then
+	git clone https://aur.archlinux.org/yay.git $HOME/Software/yay
+	pushd $HOME/Software/yay
+	makepkg -si
+	popd
+fi
+# }}}
+
+sleep 1
