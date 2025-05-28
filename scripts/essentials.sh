@@ -17,8 +17,9 @@ ESSENTIALS
 "
 
 PACKAGES_DIR="$HOME/Repos/rodo-linux/package-lists"
+
 # {{{ Essential Packages
-for line in $(cat $HOME/essentials.txt); do
+for line in $(cat $PACKAGES_DIR/essentials.txt); do
 	sudo pacman -S --noconfirm --needed $line
 done
 # }}}
