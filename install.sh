@@ -4,27 +4,15 @@ sudo pacman -S --needed --noconfirm git
 
 if [[ ! -d $HOME/Repos ]]; then
 	mkdir $HOME/Repos
+fi
 
-	pushd $HOME/Repos
-	git clone https://github.com/Rodolfo/rodo-linux.git
-	popd
+if [[ -d $HOME/Repos/rodo-linux ]]; then
+	rm -rf $HOME/Repos/rodo-linux
+fi
 
-	if [[ $? == 0 ]]; then
-		pushd $HOME/Repos/rodo-linux
-		bash ./scripts/start.sh
-		popd
-		clear
-		echo "
+git clone https://github.com/Rodolfo/rodo-linux.git $HOME/Repos/rodo-linux
 
-
--------
-SUCCESS
--------
-
-
-"
-exit 0
-	fi
+if [[ $? != 0 ]]; then
 	echo "
 
 
@@ -35,14 +23,16 @@ FAILED
 
 "
 	exit 1
-fi
-echo "
+else
+	bash $HOME/Repos/rodo-linux/scripts/start.sh
+	echo "
 
 
-------
-FAILED
-------
+-------
+SUCCESS
+-------
 
 
 "
-exit 1
+	exit 0
+fi
