@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+exit 0
+
 die () {
 	clear
 	echo "
@@ -39,11 +41,12 @@ if [[ ! -d $DOTS_DIR ]]; then
 	while [[ $i == 0 ]]; do
 		read -p "Enter a dotfiles repository: " dotsrepo
 		git clone $dotsrepo $DOTS_DIR
-		if [[ $? != 0 ]]; then
+		if [[ $? == 0 ]]; then
+			((i++))
+		else
 			die
-			return 0
+			exit 0
 		fi
-		break
 	done
 
 	if [[ ! -d $HOME/.config ]]; then
@@ -55,7 +58,7 @@ if [[ ! -d $DOTS_DIR ]]; then
 		ln -s "$DOTS_DIR/$file" "$HOME/.config/$file"
 	done
 
-	if [[ -z $( cat .bashrc | grep "source $HOME/.config/bash/my_bashrc.sh") ]]; then
+	if [[ -z $( cat $HOME/.bashrc | grep "source $HOME/.config/bash/my_bashrc.sh") ]]; then
 		echo "source $HOME/.config/bash/my_bashrc.sh" >> $HOME/.bashrc
 	fi
 else
