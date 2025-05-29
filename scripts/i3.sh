@@ -2,6 +2,8 @@
 
 set -e
 
+clear
+
 echo "
 
 
@@ -28,6 +30,19 @@ PACKAGES_DIR="$HOME/Repos/rodo-linux/package-lists"
 for line in $(cat $PACKAGES_DIR/i3.txt); do
 	sudo pacman -S --noconfirm --needed $line
 done
+# }}}
+
+# {{{ Yay setup
+if [[ ! -d $HOME/Software ]]; then
+	mkdir $HOME/Software
+fi
+
+if [[ ! -d $HOME/Software/yay ]]; then
+	git clone https://aur.archlinux.org/yay.git $HOME/Software/yay
+	pushd $HOME/Software/yay
+	makepkg -si
+	popd
+fi
 # }}}
 
 # {{{ i3 yay packages

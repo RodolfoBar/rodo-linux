@@ -1,0 +1,14 @@
+pulsemixer
+thunar
+gvfs
+gvfs-mtp
+thunar-volman
+flameshot
+qutebrowser
+nextcloud-client
+gnome-keyring
+libsecret
+seahorse
+zathura
+vlc
+discord

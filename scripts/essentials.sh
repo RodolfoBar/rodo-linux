@@ -37,7 +37,7 @@ fi
 
 # {{{ Graphics Drivers
 # if [[ ! -z $(lspci | grep VGA | grep NVIDIA) ]]; then
-# 	sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-settings
+# 	sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-settings nvidia-utils lib32-nvidia-utils
 # elif [[ ! -z $(lspci | grep VGA) ]]; then
 # 	sudo pacman -S --noconfirm --needed 
 # fi
@@ -78,11 +78,15 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsM
 unzip JetBrainsMono.zip
 popd
 
-if [[ -d $FONT_DIR/DepartureMono ]]; then
-	rm -rf $FONT_DIR/DepartureMono
+if [[ ! -d $FONT_DIR/opentype ]]; then
+	mkdir $FONT_DIR/opentype
 fi
-mkdir $FONT_DIR/DepartureMono
-pushd $FONT_DIR/DepartureMono
+
+if [[ -d $FONT_DIR/opentype/DepartureMono ]]; then
+	rm -rf $FONT_DIR/opentype/DepartureMono
+fi
+mkdir $FONT_DIR/opentype/DepartureMono
+pushd $FONT_DIR/opentype/DepartureMono
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip
 unzip DepartureMono.zip
 popd
