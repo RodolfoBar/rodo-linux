@@ -17,7 +17,7 @@ DESKTOP APPS
 PACKAGES_DIR=$HOME/Repos/rodo-linux/package-lists
 
 for line in $(cat $PACKAGES_DIR/desktopapps.txt); do
-    sudo pacman -S --noconfirm -needed $line
+    sudo pacman -S --noconfirm --needed $line
 done
 
 if [[ ! -d $HOME/.config ]]; then
@@ -42,19 +42,21 @@ echo '{
   "chromiumSwitches": {}
 }' > $HOME/.config/discord/settings.json
 
-# {{{ yay install
-# if [[ ! -d $HOME/Software ]]; then
-# 	mkdir $HOME/Software
-# fi
-#
-# if [[ ! -d $HOME/Software/yay ]]; then
-# 	git clone https://aur.archlinux.org/yay.git $HOME/Software/yay
-# 	pushd $HOME/Software/yay
-# 	makepkg -si
-# 	popd
-# fi
-# }}}
+if type -p yay &>/dev/null; then
+    yay -S --noconfirm --needed zen-browser-bin google-chrome
+else
+    # {{{ yay install
+    if [[ ! -d $HOME/Software ]]; then
+        mkdir $HOME/Software
+    fi
 
-# yay -S --noconfirm --needed zen-browser-bin google-chrome
+    if [[ ! -d $HOME/Software/yay ]]; then
+        git clone https://aur.archlinux.org/yay.git $HOME/Software/yay
+        pushd $HOME/Software/yay
+        makepkg -si
+        popd
+    fi
+    # }}}
+fi
 
 sleep 1

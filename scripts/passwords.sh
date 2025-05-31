@@ -14,6 +14,6 @@ PASSWORD MANAGER
 
 "
 
-sudo pacman -S keepassxc
+sudo pacman -S --noconfirm --needed keepassxc
 
 sleep 1
