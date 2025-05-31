@@ -2,6 +2,39 @@
 
 set -e
 
+die () {
+    clear
+    echo "
+
+
+
+
+---------------
+EXITING PROGRAM
+---------------
+
+
+
+
+"
+    exit 0
+}
+
+invalid () {
+    clear
+    echo "
+
+
+
+----------------------------
+NOT A VALID OPTION TRY AGAIN
+----------------------------
+
+
+
+"
+}
+
 i=0
 
 SCRIPTS_DIR="$HOME/Repos/rodo-linux/scripts"
@@ -35,24 +68,10 @@ enter q to quit
 " response
 
     if [[ $response == 'q' ]]; then
-        clear
-        echo "
-
-
-
-
----------------
-EXITING PROGRAM
----------------
-
-
-
-
-"
-        exit 0
+        die
     fi
 
-    if [[ $response < 13 && $response > 0 ]]; then
+    if [[ $response < 14 && $response > 0 ]]; then
         case "$response" in
             1) bash $SCRIPTS_DIR/essentials.sh ;;
             2) bash $SCRIPTS_DIR/dotfiles.sh ;;
@@ -67,19 +86,7 @@ EXITING PROGRAM
             11) bash $SCRIPTS_DIR/partition.sh ;;
             12) bash $SCRIPTS_DIR/steam.sh ;;
             13) bash $SCRIPTS_DIR/all.sh ;;
-            *)
-                clear
-                echo "
-
-
-
-----------------------------
-NOT A VALID OPTION TRY AGAIN
-----------------------------
-
-
-
-" ;;
+            *) invalid ;;
         esac
     fi
 done
