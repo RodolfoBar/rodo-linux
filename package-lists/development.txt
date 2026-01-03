@@ -10,3 +10,4 @@ curl
 fzf
 tmux
 python-pip
+cmake

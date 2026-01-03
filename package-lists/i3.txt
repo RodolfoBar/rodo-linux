@@ -7,3 +7,4 @@ feh
 kitty
 rofi
 polybar
+picom
